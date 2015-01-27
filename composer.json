@@ -1,0 +1,27 @@
+{
+    "name": "jiro/support",
+    "description": "The Jiro Support package.",
+    "authors": [
+        {
+            "name": "Andrew McLagan",
+            "email": "andrewmclagan@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.1",
+    },    
+    "autoload": {
+        "psr-4": {
+            "Jiro\\Support\\": "src/"
+        }      
+    },
+    "autoload-dev": {      
+        "psr-4": { 
+            "Jiro\\Support\\spec\\": "spec/"
+        }
+    },      
+    "minimum-stability": "dev"
+}
