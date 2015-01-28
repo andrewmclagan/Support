@@ -1,4 +1,4 @@
-<?php namespace Jiro\Product\Migration;
+<?php namespace Jiro\Support\Migration;
 
 /**
  * Migraton Creator interface.
