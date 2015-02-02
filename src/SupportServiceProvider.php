@@ -1,8 +1,6 @@
 <?php namespace Jiro\Support;
 
 use Illuminate\Support\ServiceProvider;
-use Jiro\Support\Migration\MigrationCreatorInterface;
-use Jiro\Support\Migration\MigratorInterface;
 
 class SupportServiceProvider extends ServiceProvider {
 
@@ -19,9 +17,7 @@ class SupportServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{
-		$this->app->bind(MigrationCreatorInterface::class, IlluminateMigrationCreator::class);		
-		$this->app->bind(MigratorInterface::class, IlluminateMigrator::class);		
+	{	
 	}			
 
 	/**
@@ -31,10 +27,7 @@ class SupportServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return [
-			'Jiro\Support\Migration\MigrationCreatorInterface',
-			'Jiro\Support\Migration\MigratorInterface',
-		];
+		return [];
 	}
 
 }
