@@ -29,7 +29,7 @@ class Migrator
 	}			
 
 	/**
-	 * Run the migration on the class
+	 * Run the migration on the class instance 
 	 *
 	 * @param string $direction
 	 * @param Migration $migration
