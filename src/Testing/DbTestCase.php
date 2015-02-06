@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Testing\TestCase;
 use Jiro\Support\Migration\Migrator;
+use Laracasts\TestDummy\Factory;
 
 /**
  * Sets up application instance and DB for integration testing
@@ -26,13 +27,15 @@ abstract class DbTestCase extends TestCase
 	}	
 
 	/**
-	 * Setup DB before each test.
+	 * Setup before each test.
 	 *
 	 * @return void	 
 	 */
 	public function setUp()
 	{ 
 		parent::setUp();
+
+		Factory::$factoriesPath = __DIR__.'/factories';
 
 		$this->registerServiceProviders();
 
