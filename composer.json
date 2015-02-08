@@ -12,8 +12,7 @@
     },
     "require-dev": {
         "phpspec/phpspec": "~2.1",
-        "mikey179/vfsStream": "1.4.0",
-        "laravel/laravel": "~5.0"
+        "mikey179/vfsStream": "1.4.0"
     },    
     "autoload": {
         "psr-4": {
