@@ -58,6 +58,7 @@ class MigrationFinder
      * Filter out the files we dont want  
      *
      * @param \DirectoryIterator $fileInfo
+     * @return boolean
      */
     private function filter($file)
     {
