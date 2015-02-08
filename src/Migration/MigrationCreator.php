@@ -2,7 +2,7 @@
 
 use Jiro\Support\Exceptions\JiroException;
 use Illuminate\Filesystem\FileSystem;
-use Illuminate\Database\Migrations\MigrationCreator;
+use Illuminate\Database\Migrations\MigrationCreator as IlluminateMigrationCreator;
 
 /**
  * Creates migration files from stub files
@@ -31,7 +31,7 @@ class MigrationCreator
      *
      * @var Illuminate\Database\Migrations\MigrationCreator
      */
-    private $migrationCreator;        
+    private $illuminateMigrationCreator;        
 
 	/**
 	 * constructor
@@ -46,7 +46,7 @@ class MigrationCreator
 
 		$this->assertDirectoriesExists();
 
-		$this->migrationCreator = new MigrationCreator(new FileSystem);
+		$this->illuminateMigrationCreator = new IlluminateMigrationCreator(new FileSystem);
 	}
 
 	/**
@@ -78,7 +78,7 @@ class MigrationCreator
 	 */
 	private function createEmptyMigrationFile($migrationName)
 	{ 
-		return $this->migrationCreator->create($migrationName, $this->destination);		
+		return $this->illuminateMigrationCreator->create($migrationName, $this->destination);		
 	}
 
 	/**

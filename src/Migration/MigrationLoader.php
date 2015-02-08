@@ -69,7 +69,7 @@ class MigrationLoader
 
         if ($className == '')
         {
-            throw new \UnexpectedValueException('Could not locate migration class in file "$file"');
+            throw new \UnexpectedValueException('Could not locate migration class in file "'.$file.'"');
         }
 
         return $className;

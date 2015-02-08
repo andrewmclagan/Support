@@ -1,7 +1,6 @@
 <?php namespace Jiro\Support\Migration;
 
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use DirectoryIterator;
 
 /**
  * Discovers migration files in a directory
@@ -32,9 +31,12 @@ class MigrationFinder
     {
         $files = [];
 
-        foreach($this->getDirectoryIterator() as $file)
+        foreach($this->getDirectoryIterator() as $fileInfo)
         {
-            $files[] = $file->getPathname();
+            if ($this->filter($fileInfo))
+            {
+                $files[] = $fileInfo->getPathname();
+            }
         }
 
         return $files;
@@ -47,9 +49,18 @@ class MigrationFinder
      */
     private function getDirectoryIterator()
     {
-        $directoryIterator = new RecursiveDirectoryIterator($this->basePath);
-        $directoryIterator->setFlags(RecursiveDirectoryIterator::SKIP_DOTS);
+        $directoryIterator = new DirectoryIterator($this->basePath);
 
-        return new RecursiveIteratorIterator($directoryIterator);
-    }    
+        return $directoryIterator;
+    }  
+
+    /**
+     * Filter out the files we dont want  
+     *
+     * @param \DirectoryIterator $fileInfo
+     */
+    private function filter($file)
+    {
+        return ( ! $file->isDot() && $file->isFile() && ($file->getFileName()[0] !== '.') );
+    }
 }

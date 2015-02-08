@@ -19,7 +19,7 @@ abstract class DbTestCase extends TestCase
 	 */
 	public function createApplication()
 	{
-		$app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
+		$app = require __DIR__.'/../../../../laravel/laravel/bootstrap/app.php';
 
 		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
@@ -52,9 +52,9 @@ abstract class DbTestCase extends TestCase
 	 */
 	public function registerServiceProviders()
 	{
-		foreach ($this->getServiceProviders as $provider)
+		foreach ($this->getServiceProviders() as $provider)
 		{
-			$app->register($provider);
+			$this->app->register($provider);
 		}
 	}
 
