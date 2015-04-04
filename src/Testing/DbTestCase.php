@@ -19,6 +19,8 @@ abstract class DbTestCase extends TestCase
 	 */
 	public function createApplication()
 	{
+		require __DIR__.'/../../../../bootstrap/autoload.php';
+		
 		$app = require __DIR__.'/../../../../laravel/laravel/bootstrap/app.php';
 
 		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();

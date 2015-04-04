@@ -1,6 +1,7 @@
 <?php namespace Jiro\Support\Migration;
 
 use DirectoryIterator;
+use Jiro\Support\Exceptions\JiroException;
 
 /**
  * Discovers migration files in a directory
@@ -39,6 +40,11 @@ class MigrationFinder
             }
         }
 
+        if (empty($files))
+        {   
+            throw new JiroException('Migrations path is empty!');
+        }        
+
         return $files;
     }
 
@@ -63,5 +69,5 @@ class MigrationFinder
     private function filter($file)
     {
         return ( ! $file->isDot() && $file->isFile() && ($file->getFileName()[0] !== '.') );
-    }
+    }  
 }

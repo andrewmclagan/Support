@@ -28,7 +28,6 @@ class MigrationFinderSpec extends ObjectBehavior
         $structure = [
             '.' => [],
             '.hiddenFile' => 'some text content',
-
             '..' => '',
         ];
         $path = vfsStream::setup('root_dir', null, $structure); 
